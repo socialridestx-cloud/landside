@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Mona+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=8" />
+  <link rel="stylesheet" href="assets/style.css?v=9" />
   <script type="importmap">
     { "imports": {
         "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
@@ -161,10 +161,10 @@
     </div>
   </footer>
 
-  <script src="assets/fleet.js?v=8"></script>
-  <script src="assets/dal-data.js?v=8"></script>
+  <script src="assets/fleet.js?v=9"></script>
+  <script src="assets/dal-data.js?v=9"></script>
   <script type="module">
-    import("./assets/route3d.js?v=8").catch(() => document.getElementById("walk3d").classList.add("w3-failed"));
+    import("./assets/route3d.js?v=9").catch(() => document.getElementById("walk3d").classList.add("w3-failed"));
   </script>
   <script>
     // Make sure the hero video starts even if the browser held autoplay back.
@@ -207,10 +207,13 @@
 
     function render() {
       if (!answers.people || !answers.bags || !answers.priority) return;
+      const firstResult = !document.querySelector("#match-card .pop");
       const ranked = FLEET.map((c) => ({ c, ...score(c, answers) }))
         .filter((r) => r.s > -Infinity)
         .sort((x, y) => y.s - x.s);
       show(ranked, 0);
+      // On phones the result sits below the questions: bring it into view the first time.
+      if (firstResult && innerWidth < 900) document.getElementById("match-card").scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
     function show(ranked, i) {
@@ -243,6 +246,6 @@
     }
   </script>
   <!-- 4. Chatbot -->
-  <script src="assets/chatbot.js?v=8"></script>
+  <script src="assets/chatbot.js?v=9"></script>
 </body>
 </html>
