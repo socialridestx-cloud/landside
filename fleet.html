@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fleet &amp; Pickup — Landside</title>
+  <meta name="description" content="Our four 2026 cars at Dallas Love Field, and exactly how pickup and return work in Garage C." />
+  <meta name="theme-color" content="#07080a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Mona+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ffb45e'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="nav solid">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>LANDSIDE</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fleet.html" aria-current="page">Fleet &amp; Pickup</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap page-head">
+      <span class="eyebrow">The idea</span>
+      <h1>The rental counter, skipped.</h1>
+      <p class="lede" style="max-width:60ch">
+        Landside is a small, independent car-rental host at Dallas Love Field. Instead of a counter and a shuttle ride,
+        our cars are parked in the airport's own Garage C, a five-minute walk from baggage claim. You book on Turo, which
+        handles payment, driver verification, and trip protection. We handle everything else: every car is a 2026 model,
+        professionally cleaned before each rental, and checked between trips. When you land, you walk to the car, take
+        the key from the lockbox, and drive.
+      </p>
+    </div>
+
+    <section style="padding-top:32px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">The fleet</span>
+          <h2><span id="fleet-count">Six</span> cars. All 2026.</h2>
+          <p class="lede" style="max-width:56ch">Pick the one that fits your trip. Photos show each model in a similar color; the Turo listing has photos of the exact car.</p>
+        </div>
+        <div class="fleet" id="fleet"></div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Pickup</span>
+          <h2>From the gate to the driver's seat.</h2>
+        </div>
+        <div class="pickup">
+          <div class="spot reveal">
+            <span class="eyebrow">Your car is at</span>
+            <div class="big">Garage C<br />Level 6</div>
+            <p style="color:var(--bone-2);margin:0">Rows G–H, at the beginning of the row, in the far part of the level. Your Turo trip shows the exact spot.</p>
+          </div>
+          <ol class="timeline reveal">
+            <li><h3>Take the skybridge</h3><p>From the terminal, follow signs to Garage C. The skybridge arrives on Level 3.</p></li>
+            <li><h3>Ride up to Level 6</h3><p>Take the elevator to Level 6 and head to rows G–H in the far part of the level.</p></li>
+            <li><h3>Get the key</h3><p>It's in a lockbox on the car's window. The code comes with your Turo trip.</p></li>
+            <li><h3>Take check-in photos</h3><p>Add them in the Turo app before you drive.</p></li>
+            <li><h3>Exit the garage</h3><p>The parking ticket is inside the car. Scan it at the exit and go.</p></li>
+            <li><h3>Returning</h3><p>Bring it back to Garage C, Level 6. Then message us in the Turo app where you parked.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Landside</span>
+          <h2>Two ways out of DAL.</h2>
+        </div>
+        <div class="compare reveal">
+          <div class="compare-col">
+            <h3>Rental counter <span>8 steps</span></h3>
+            <ol>
+              <li>Find the counter by baggage claim</li>
+              <li>Wait in line</li>
+              <li>Contract and upsell paperwork</li>
+              <li>Go downstairs to ground transportation</li>
+              <li>Wait for the shuttle</li>
+              <li>Ride to the lot</li>
+              <li>Walk the rows to find your car</li>
+              <li>Exit the gate</li>
+            </ol>
+          </div>
+          <div class="compare-col us">
+            <h3>Landside <span style="color:var(--amber)">3 steps</span></h3>
+            <ol>
+              <li>Walk to Garage C, Level 6 (about 5 minutes)</li>
+              <li>Take the key from the lockbox on the window</li>
+              <li>Drive — scan the ticket at the exit</li>
+            </ol>
+          </div>
+        </div>
+        <p class="small-note">Typical counter flow at DAL, based on Dallas Love Field's published rental-car info. Steps vary by company.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap faq">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Good questions.</h2>
+        </div>
+        <details><summary>How do I book?</summary><p>On Turo. Tap “Book on Turo” on any car, pick your dates, and check out there. Turo handles payment, driver verification, and trip protection.</p></details>
+        <details><summary>What's the fuel policy?</summary><p>Return it with the same fuel level you started with, unless the listing says otherwise.</p></details>
+        <details><summary>Who can drive? Is insurance included?</summary><p>Turo sets driver requirements, verifies drivers, and offers protection plans at checkout.</p></details>
+        <details><summary>Are you Turo?</summary><p>No. Landside is an independent host that lists cars on Turo.</p></details>
+        <p class="small-note">Still curious? Ask the assistant in the corner — it knows the whole fleet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Landside is an independent host that lists cars on Turo. Not affiliated with Turo or Dallas Love Field.</span>
+      <a href="index.html">← Back home</a>
+      <p id="photo-credits" style="flex-basis:100%;margin:0"></p>
+    </div>
+  </footer>
+
+  <script src="assets/fleet.js"></script>
+  <script>
+    document.getElementById("fleet").innerHTML = FLEET.map((c) => `
+      <article class="car reveal">
+        <img class="car-photo" src="photos/${c.id}-sm.webp" srcset="photos/${c.id}-sm.webp 800w, photos/${c.id}.webp 1600w" sizes="(max-width: 900px) 100vw, 600px" alt="${c.name} (model photo)" loading="lazy" />
+        <div class="car-body">
+          <div class="car-top"><h2>${c.name}${c.count > 1 ? ` <span style="color:var(--mute);font-size:.6em">×${c.count}</span>` : ""}</h2><span class="pill">${c.color} · ${c.body}</span></div>
+          <p>${c.tagline}</p>
+          <dl class="specs">
+            ${Object.entries(c.specs).map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}
+          </dl>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">${bookButton(c)}</div>
+        </div>
+      </article>`).join("");
+    const WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+    document.getElementById("fleet-count").textContent = WORDS[FLEET_SIZE] ?? FLEET_SIZE;
+  </script>
+  <script src="assets/chatbot.js"></script>
+</body>
+</html>

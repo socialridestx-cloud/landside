@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landside — Car rental at Dallas Love Field</title>
+  <meta name="description" content="Land at Dallas Love Field, walk five minutes to Garage C, and drive. No counter, no shuttle. Four 2026 cars, booked on Turo." />
+  <meta name="theme-color" content="#07080a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Mona+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ffb45e'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>LANDSIDE</a>
+    <nav class="nav-links">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="fleet.html">Fleet &amp; Pickup</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1 + 2. AI-generated video: autoplays, muted, loops forever. -->
+    <section class="hero" style="padding:0">
+      <video id="hero-video" autoplay muted loop playsinline preload="auto"
+             poster="media/hero-poster.webp" aria-label="AI-generated video (Gemini): a traveler walks to an SUV in an airport parking garage at night">
+        <source src="media/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="wrap hero-copy">
+        <span class="eyebrow">Car rental · Dallas Love Field</span>
+        <h1>Land. Walk. <em>Drive.</em></h1>
+        <p class="lede">Your car is waiting in Garage C, five minutes from the gate. No counter, no shuttle, no line.</p>
+        <div class="hero-ctas">
+          <!-- 3. Button to the second page -->
+          <a class="btn btn-primary" href="fleet.html">Meet the fleet &amp; pickup guide <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#matcher">Find my car</a>
+        </div>
+      </div>
+      <div class="video-tag" id="video-tag"><span class="rec"></span>AI-generated video · Gemini</div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>Four steps. That's the whole trip.</h2>
+        </div>
+        <div class="steps reveal">
+          <div class="step"><span class="n">01</span><h3>Book</h3><p>Pick a car on Turo.</p></div>
+          <div class="step"><span class="n">02</span><h3>Land</h3><p>Fly into Dallas Love Field.</p></div>
+          <div class="step"><span class="n">03</span><h3>Walk</h3><p>About 5 minutes to Garage C, Level 6.</p></div>
+          <div class="step"><span class="n">04</span><h3>Drive</h3><p>Key from the lockbox, ticket in the car. Go.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. X-factor: Car Matcher -->
+    <section id="matcher" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Car Matcher</span>
+          <h2>Which car is yours? Three taps.</h2>
+        </div>
+        <div class="matcher reveal">
+          <div>
+            <div class="q">
+              <span class="q-label">Who's coming?</span>
+              <div class="chips" data-q="people">
+                <button class="chip" data-v="2">Just me / two of us</button>
+                <button class="chip" data-v="5">3–5 people</button>
+                <button class="chip" data-v="7">6–7 people</button>
+                <button class="chip" data-v="8">8 people</button>
+              </div>
+            </div>
+            <div class="q">
+              <span class="q-label">How much luggage?</span>
+              <div class="chips" data-q="bags">
+                <button class="chip" data-v="light">Carry-ons</button>
+                <button class="chip" data-v="some">A checked bag each</button>
+                <button class="chip" data-v="lots">Lots (golf, strollers)</button>
+              </div>
+            </div>
+            <div class="q">
+              <span class="q-label">What matters most?</span>
+              <div class="chips" data-q="priority">
+                <button class="chip" data-v="fuel">Saving on gas</button>
+                <button class="chip" data-v="awd">All-wheel drive</button>
+                <button class="chip" data-v="power">Power</button>
+                <button class="chip" data-v="park">Easy parking</button>
+              </div>
+            </div>
+            <p class="small-note">Every match is a car in our fleet, all 2026 models. Photos show the same model in a similar color.</p>
+          </div>
+          <div class="match-card" id="match-card" aria-live="polite">
+            <div class="match-empty"><div class="big">?</div>Answer the three questions<br />and your car appears here.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <p class="xfactor-note reveal">
+        <strong>X-Factor — Car Matcher:</strong> Answer three quick questions — party size, luggage, and what matters most — and the
+        matcher scores our real fleet, shows the best car with its photo, specs, and match score, and links straight to booking on Turo.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Landside is an independent host that lists cars on Turo. Not affiliated with Turo or Dallas Love Field.</span>
+      <a href="fleet.html">Fleet &amp; Pickup →</a>
+      <p id="photo-credits" style="flex-basis:100%;margin:0"></p>
+    </div>
+  </footer>
+
+  <script src="assets/fleet.js"></script>
+  <script>
+    // Make sure the hero video starts even if the browser held autoplay back.
+    const v = document.getElementById("hero-video");
+    const play = () => v.play().catch(() => {});
+    v.addEventListener("canplay", play, { once: true });
+    document.addEventListener("visibilitychange", () => !document.hidden && play());
+    play();
+
+    // ── Car Matcher ───────────────────────────────────
+    const answers = {};
+    document.querySelectorAll(".chips").forEach((group) => {
+      group.addEventListener("click", (e) => {
+        const chip = e.target.closest(".chip");
+        if (!chip) return;
+        group.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", c === chip));
+        answers[group.dataset.q] = chip.dataset.v;
+        render();
+      });
+    });
+
+    function score(car, a) {
+      const people = +a.people;
+      if (car.seats < people) return { s: -Infinity, why: [] };
+      let s = 0; const why = [];
+      if (people >= 6) { s += 4; why.push(car.seats >= 8 ? "8 seats across three rows" : "three rows of seats"); }
+      if (people <= 2 && car.rows === 3) s -= 1.5;
+      if (a.bags === "lots") { s += car.rows === 3 ? 4 : -2; if (car.rows === 3) why.push("room for everyone's bags"); }
+      if (a.bags === "some" && people >= 3) s += car.rows === 3 ? 1.5 : 0;
+      if (a.bags === "light" && car.rows === 2) s += 1;
+      if (a.priority === "fuel") { s += car.economy * 1.3; if (car.economy >= 3) why.push("light on fuel"); }
+      if (a.priority === "awd") { s += car.awd ? 4.5 : 0; if (car.awd) why.push("all-wheel drive standard"); else if (car.awd === false) why.push("front-wheel drive (closest fit)"); }
+      if (a.priority === "power") { s += (car.hp || 0) / 45; if (car.hp) why.push(`${car.hp} hp`); }
+      if (a.priority === "park") { s += car.rows === 2 ? 4 : 0; if (car.rows === 2) why.push("compact and easy to park"); }
+      return { s, why };
+    }
+
+    function render() {
+      if (!answers.people || !answers.bags || !answers.priority) return;
+      const ranked = FLEET.map((c) => ({ c, ...score(c, answers) }))
+        .filter((r) => r.s > -Infinity)
+        .sort((x, y) => y.s - x.s);
+      show(ranked, 0);
+    }
+
+    function show(ranked, i) {
+      const top = ranked[i], next = ranked[i === 0 ? 1 : 0];
+      const max = ranked[0].s, min = ranked[ranked.length - 1].s;
+      const pct = ranked.length === 1 ? 97 : Math.round(62 + 36 * (top.s - min) / ((max - min) || 1));
+      const card = document.getElementById("match-card");
+      const c = top.c;
+      card.innerHTML = `
+        <div class="pop" style="display:flex;flex-direction:column;flex:1">
+          <span class="match-score"><b>${pct}%</b> match</span>
+          <img class="match-img" src="photos/${c.id}-sm.webp" alt="${c.name} (model photo)" />
+          <div class="match-body">
+            <span class="eyebrow">${i === 0 ? "Your best match" : "Also a good fit"}</span>
+            <h3>${c.name}${c.count > 1 ? ` <span style="color:var(--mute);font-size:.6em">×${c.count}</span>` : ""}</h3>
+            <p class="match-why">${c.color} ${c.body.replace("Compact", "compact")} —${top.why.length ? top.why.join(", ") : c.tagline.toLowerCase()}.</p>
+            <dl class="specs" style="margin:0">
+              ${Object.entries(c.specs).slice(0, 3).map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}
+            </dl>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              ${bookButton(c)}
+              <button class="btn btn-ghost" type="button" id="ask-bot">Ask about it</button>
+            </div>
+            ${next ? `<span class="runner">Runner-up: <button type="button" id="swap">${next.c.name}</button></span>` : ""}
+          </div>
+        </div>`;
+      document.getElementById("ask-bot").onclick = () => window.landsideChat?.ask(`Tell me about the ${c.short}`);
+      const sw = document.getElementById("swap");
+      if (sw) sw.onclick = () => show(ranked, i === 0 ? 1 : 0);
+    }
+  </script>
+  <!-- 4. Chatbot -->
+  <script src="assets/chatbot.js"></script>
+</body>
+</html>
