@@ -143,7 +143,7 @@ section { padding: clamp(64px, 10vw, 120px) 0; }
 .xfactor-note strong { color: var(--amber); }
 
 /* ── Fleet page ──────────────────────────────────── */
-.page-head { padding: clamp(56px, 8vw, 96px) 0 24px; }
+.page-head { padding-top: clamp(56px, 8vw, 96px); padding-bottom: 24px; }
 .page-head h1 { font-size: clamp(40px, 6.5vw, 84px); margin: 14px 0 18px; }
 .fleet { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .car { background: var(--ink-2); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; }
@@ -255,7 +255,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   .nav-links a { padding: 8px 10px; }
   .specs { grid-template-columns: 1fr 1fr; }
   .chat-fab .label { display: none; }
-  .video-tag { display: none; }
+  .video-tag { top: 70px; font-size: 11px; padding: 4px 10px; }
+  .specs > div:last-child:nth-child(odd) { grid-column: span 2; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
