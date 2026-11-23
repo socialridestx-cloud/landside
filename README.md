@@ -2,9 +2,10 @@
 
 Static site (plain HTML/CSS/JS) for GitHub Pages.
 
-- `index.html` — landing page: AI video (autoplay, muted, loop), button to the second page, Car Matcher (X-factor) + description at the bottom, chatbot.
+- `index.html` — landing page: AI video (autoplay, muted, loop), button to the second page, **X-factor: 3D walk** from the terminal to Garage C, Level 6, Row G (description at the bottom), Car Matcher, chatbot.
 - `fleet.html` — second page: the idea, the fleet (6 cars), pickup steps, counter-vs-Landside, FAQ, chatbot.
-- `assets/chatbot.js` — the chatbot (runs in the browser, no API key; chat carries across pages).
+- `assets/route3d.js` + `assets/dal-data.js` — the 3D walk (three.js from a CDN; map footprints © OpenStreetMap contributors).
+- `assets/chatbot.js` — the chat window on both pages, with two tabs: **Quick answers** (runs in the browser, no API key) and **AI assistant**, our Lab 3 Chatling bot (https://share.chatling.ai/s/qXEmiJErn2y5oH3) embedded.
 - `media/hero.mp4` — AI video made with Gemini (Veo) from the prompt below, trimmed to 5 s, muted, letterbox cropped.
 
 ## 1. The AI video (Gemini / Veo) — done

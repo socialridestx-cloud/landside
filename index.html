@@ -17,7 +17,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Mona+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=4" />
+  <link rel="stylesheet" href="assets/style.css?v=8" />
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ffb45e'/%3E%3C/svg%3E" />
 </head>
 <body>
@@ -43,7 +48,7 @@
         <div class="hero-ctas">
           <!-- 3. Button to the second page -->
           <a class="btn btn-primary" href="fleet.html">Meet the fleet &amp; pickup guide <span class="arrow">→</span></a>
-          <a class="btn btn-ghost" href="#matcher">Find my car</a>
+          <a class="btn btn-ghost" href="#walk3d">See the walk in 3D</a>
         </div>
       </div>
       <div class="video-tag" id="video-tag"><span class="rec"></span>AI-generated video · Gemini</div>
@@ -64,7 +69,39 @@
       </div>
     </section>
 
-    <!-- 5. X-factor: Car Matcher -->
+    <!-- 5. X-factor: 3D walk from the terminal to Garage C, Level 6, Row G -->
+    <section id="walk3d" class="walk3d" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">X-Factor · Walk it in 3D</span>
+          <h2>Gate to Row G, before you land.</h2>
+          <p class="lede" style="max-width:58ch">The five-minute walk from the terminal to your car, on a 3D map of Dallas Love Field. Tap a step, or drag to look around.</p>
+        </div>
+        <div class="w3">
+          <div class="w3-stage" role="img" aria-label="3D map: from the Love Field terminal through the Garage C skybridge on Level 3, up the elevator to Level 6, and across to Row G where your car is parked.">
+            <div class="w3-hud">
+              <div><span class="eyebrow">Elapsed · approx.</span><b data-w3="clock">0:00</b></div>
+              <div class="r"><span class="eyebrow">Walked · approx.</span><b><span data-w3="feet">0</span><span class="of"> / <span data-w3="total">0</span> ft</span></b><i><span data-w3="bar"></span></i></div>
+            </div>
+            <p class="w3-caption" data-w3="caption" aria-live="polite"><b>01</b> Walk out to the main lobby.</p>
+            <p class="w3-credit">Map data © OpenStreetMap contributors<span class="w3-note"> · stylized, levels not to scale</span></p>
+            <div class="w3-fallback">The 3D map couldn't load on this device. The steps: lobby → Garage C signs → skybridge to Level 3 → elevator to Level 6 → Row G.</div>
+          </div>
+          <div class="w3-controls">
+            <button class="btn btn-primary w3-play" type="button">▶ Play the walk</button>
+            <div class="w3-steps" role="group" aria-label="Jump to a step">
+              <button type="button" aria-pressed="true">01 Exit</button>
+              <button type="button">02 Garage C signs</button>
+              <button type="button">03 Skybridge → L3</button>
+              <button type="button">04 Elevator → L6</button>
+              <button type="button">05 Row G</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Car Matcher -->
     <section id="matcher" style="padding-top:0">
       <div class="wrap">
         <div class="section-head reveal">
@@ -110,8 +147,8 @@
 
     <div class="wrap">
       <p class="xfactor-note reveal">
-        <strong>X-Factor — Car Matcher:</strong> Answer three quick questions — party size, luggage, and what matters most — and the
-        matcher scores our real fleet, shows the best car with its photo, specs, and match score, and links straight to booking on Turo.
+        <strong>X-Factor — 3D walk to your car:</strong> An interactive 3D map, built from real OpenStreetMap footprints of Dallas Love Field,
+        animates the walk from the terminal across the skybridge and up the elevator to Garage C, Level 6, Row G. Tap any step or drag to explore.
       </p>
     </div>
   </main>
@@ -124,7 +161,11 @@
     </div>
   </footer>
 
-  <script src="assets/fleet.js?v=4"></script>
+  <script src="assets/fleet.js?v=8"></script>
+  <script src="assets/dal-data.js?v=8"></script>
+  <script type="module">
+    import("./assets/route3d.js?v=8").catch(() => document.getElementById("walk3d").classList.add("w3-failed"));
+  </script>
   <script>
     // Make sure the hero video starts even if the browser held autoplay back.
     const v = document.getElementById("hero-video");
@@ -202,6 +243,6 @@
     }
   </script>
   <!-- 4. Chatbot -->
-  <script src="assets/chatbot.js?v=4"></script>
+  <script src="assets/chatbot.js?v=8"></script>
 </body>
 </html>
