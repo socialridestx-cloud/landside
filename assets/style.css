@@ -319,7 +319,10 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   .spot { position: static; }
 }
 @media (max-width: 560px) {
-  .steps { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .step { padding: 18px 16px 20px; }
+  .step h3 { font-size: 21px; margin: 12px 0 6px; }
+  .step p { font-size: 14px; line-height: 1.45; }
   .nav-links a { padding: 8px 10px; }
   .specs { grid-template-columns: 1fr 1fr; }
   .chat-fab .label { display: none; }
