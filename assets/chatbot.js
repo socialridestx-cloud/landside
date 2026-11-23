@@ -5,6 +5,9 @@
   const FLEET = window.FLEET || [];
   const STORE = "landside-chat-v1";
   const OPEN = "landside-chat-open";
+  const TAB = "landside-chat-tab";
+  // Our Lab 3 AI chatbot (built in Chatling, answers from our guest guide + FAQ).
+  const LAB3_BOT = "https://share.chatling.ai/s/qXEmiJErn2y5oH3";
   const link = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
   const byId = (id) => FLEET.find((c) => c.id === id);
   const turoLink = (c, text = "Book on Turo") => {
@@ -169,12 +172,22 @@
       <div class="chat-title"><b>Landside Assistant</b><span>Online · replies instantly</span></div>
       <button class="chat-x" aria-label="Close chat">×</button>
     </div>
-    <div class="chat-log" aria-live="polite"></div>
-    <div class="chat-quick"></div>
-    <form class="chat-form" autocomplete="off">
-      <input name="q" placeholder="Ask about cars, pickup, returns…" aria-label="Your message" />
-      <button type="submit" aria-label="Send">${icon.send}</button>
-    </form>`;
+    <div class="chat-tabs" role="tablist" aria-label="Choose an assistant">
+      <button type="button" role="tab" data-tab="quick" aria-selected="true">Quick answers</button>
+      <button type="button" role="tab" data-tab="ai" aria-selected="false">AI assistant <small>Lab 3</small></button>
+    </div>
+    <div class="chat-view" data-view="quick">
+      <div class="chat-log" aria-live="polite"></div>
+      <div class="chat-quick"></div>
+      <form class="chat-form" autocomplete="off">
+        <input name="q" placeholder="Ask about cars, pickup, returns…" aria-label="Your message" />
+        <button type="submit" aria-label="Send">${icon.send}</button>
+      </form>
+    </div>
+    <div class="chat-view chat-ai" data-view="ai" hidden>
+      <div class="chat-ai-load">Loading the AI assistant…</div>
+      <p class="chat-ai-note">Our Lab 3 AI chatbot, built in Chatling. It can take a few seconds to reply. <a href="${LAB3_BOT}" target="_blank" rel="noopener">Open full screen ↗</a></p>
+    </div>`;
   document.body.append(fab, panel);
 
   const log = panel.querySelector(".chat-log");
@@ -217,11 +230,30 @@
   if (history.length) history.forEach(([w, h]) => add(w, h, false));
   else add("bot", "Hi! I'm the Landside assistant 👋\nAsk me anything about our cars or picking one up at Dallas Love Field.");
 
+  // Tabs: built-in quick answers vs. the Lab 3 Chatling AI bot (iframe loads on first use).
+  const tabs = [...panel.querySelectorAll("[role=tab]")];
+  const aiView = panel.querySelector('[data-view="ai"]');
+  function setTab(name) {
+    tabs.forEach((t) => t.setAttribute("aria-selected", String(t.dataset.tab === name)));
+    panel.querySelectorAll(".chat-view").forEach((v) => (v.hidden = v.dataset.view !== name));
+    if (name === "ai" && !aiView.querySelector("iframe")) {
+      const f = document.createElement("iframe");
+      f.src = LAB3_BOT;
+      f.title = "Landside AI assistant (Lab 3 Chatling chatbot)";
+      f.allow = "clipboard-write";
+      f.addEventListener("load", () => aiView.querySelector(".chat-ai-load")?.remove());
+      aiView.prepend(f);
+    }
+    if (name === "quick") setTimeout(() => input.focus(), 50);
+    try { sessionStorage.setItem(TAB, name); } catch (_) {}
+  }
+  tabs.forEach((t) => (t.onclick = () => setTab(t.dataset.tab)));
+
   function setOpen(open) {
     panel.hidden = !open;
     fab.style.visibility = open ? "hidden" : "visible";
     try { sessionStorage.setItem(OPEN, open ? "1" : ""); } catch (_) {}
-    if (open) { fab.querySelector(".ping")?.remove(); setTimeout(() => input.focus(), 200); log.scrollTop = log.scrollHeight; }
+    if (open) { fab.querySelector(".ping")?.remove(); if (!panel.querySelector('[data-view="quick"]').hidden) setTimeout(() => input.focus(), 200); log.scrollTop = log.scrollHeight; }
   }
   fab.onclick = () => setOpen(true);
   panel.querySelector(".chat-x").onclick = () => setOpen(false);
@@ -229,8 +261,11 @@
   form.onsubmit = (e) => { e.preventDefault(); send(input.value); };
   let wasOpen = false;
   try { wasOpen = sessionStorage.getItem(OPEN) === "1"; } catch (_) {}
+  let savedTab = "quick";
+  try { savedTab = sessionStorage.getItem(TAB) || "quick"; } catch (_) {}
+  if (savedTab === "ai" && wasOpen) setTab("ai");
   if (wasOpen) setOpen(true);
 
   // Let other parts of the page open the chat with a question.
-  window.landsideChat = { reply, open: () => setOpen(true), ask: (q) => { setOpen(true); send(q); } };
+  window.landsideChat = { reply, open: () => setOpen(true), ask: (q) => { setTab("quick"); setOpen(true); send(q); }, openAI: () => { setTab("ai"); setOpen(true); } };
 })();
