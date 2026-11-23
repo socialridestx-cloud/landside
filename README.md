@@ -3,7 +3,7 @@
 Static site (plain HTML/CSS/JS) for GitHub Pages.
 
 - `index.html` — landing page: AI video (autoplay, muted, loop), button to the second page, Car Matcher (X-factor) + description at the bottom, chatbot.
-- `fleet.html` — second page: the idea, the 4 cars, pickup steps, counter-vs-Landside, FAQ, chatbot.
+- `fleet.html` — second page: the idea, the fleet (6 cars), pickup steps, counter-vs-Landside, FAQ, chatbot.
 - `assets/chatbot.js` — the chatbot (runs in the browser, no API key; chat carries across pages).
 - `media/hero.mp4` — AI video made with Gemini (Veo) from the prompt below, trimmed to 5 s, muted, letterbox cropped.
 
@@ -15,9 +15,6 @@ Made in Gemini (Plus plan) from this prompt:
 
 Gemini's 10-second original is in `~/Downloads/landside-hero-gemini.mp4`; the site uses seconds 0.5–5.5.
 
-## 2. Put it on GitHub Pages
+## 2. Live site
 
-1. github.com → **New repository** → name it (e.g. `landside`) → Public → Create.
-2. **uploading an existing file** → drag in everything inside this folder (`index.html`, `fleet.html`, `assets`, `media`, `photos`) → Commit.
-3. **Settings → Pages** → Source: *Deploy from a branch* → `main` / `/ (root)` → Save.
-4. After ~1 minute the URL is `https://<your-username>.github.io/landside/`. Submit that on Canvas.
+https://socialridestx-cloud.github.io/landside/ (GitHub Pages, `main` branch, root folder).
